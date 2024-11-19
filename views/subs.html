@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Meta etiquetas requeridas -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Suscríbete</title>
+    <style>
+    body {
+        font-family: 'Poppins', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f0e9cd; /* Gris claro */
+        color: #333333; /* Negro suave */
+    }
+    header {
+        background-color: #17542A; 
+        color: #EDEEE9; 
+        text-align: center;
+        padding: 1.5rem 0;
+    }
+    header h1 {
+        font-weight: 600;
+        font-size: 2rem;
+    }
+    header p {
+        font-weight: 400;
+        font-size: 1rem;
+    }
+    nav {
+        background-color: #17542A; 
+        padding: 0.5rem 0;
+    }
+    nav a {
+        color: #EDEEE9; 
+        margin: 0 15px;
+        text-decoration: none;
+        font-weight: 600;
+    }
+    nav a:hover {
+        text-decoration: underline;
+    }
+    .container {
+        padding: 2rem 0;
+    }
+    .subscription-form {
+        background-color: #EDEEE9;
+        border-radius: 10px;
+        padding: 2rem;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .subscription-form h3 {
+        color: #17542A; /* Verde oscuro */
+        font-weight: 600;
+    }
+    .subscription-form label {
+        font-weight: 600;
+        color: #666666; /* Gris medio */
+    }
+    .subscription-form input,
+    .subscription-form button {
+        border-radius: 5px;
+    }
+    .subscription-form button {
+        background-color: #9C9F52; /* Verde oliva */
+        color: #EDEEE9;
+        font-weight: 600;
+        border: none;
+    }
+    .subscription-form button:hover {
+        background-color: #17542A; /* Verde oscuro */
+    }
+    footer {
+        background-color: #17542A; 
+        color: #EDEEE9;
+        text-align: center;
+        padding: 1rem 0;
+    }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Suscríbete</h1>
+        <p>Recibe nuestras mejores recetas directamente en tu correo</p>
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container">
+                <a class="navbar-brand" href="home.html">Inicio</a>
+                <a class="navbar-brand" href="recetas.html">Recetas</a>
+                <a class="navbar-brand" href="#">Suscríbete</a>
+                <a class="navbar-brand" href="contacto.html">Contacto</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="subscription-form">
+                    <h3 class="text-center mb-4">Suscríbete ahora</h3>
+                    <form action="#" method="post">
+                        <div class="form-group">
+                            <label for="name">Nombre:</label>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Ingresa tu nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Correo Electrónico:</label>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Ingresa tu correo" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="preferences">Preferencias:</label>
+                            <select class="form-control" id="preferences" name="preferences">
+                                <option value="todas">Todas las recetas</option>
+                                <option value="ensaladas">Ensaladas</option>
+                                <option value="postres">Postres</option>
+                                <option value="sopas">Sopas</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-block">Suscribirse</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Recetario Online. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Optional JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4f86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
