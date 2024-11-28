@@ -130,33 +130,41 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            fetch('http://localhost:3000/api/recipes')
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Error al obtener las recetas');
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    // Limitar a las primeras 3 recetas
-                    const limitedRecipes = data.slice(0, 3); 
-                    const container = document.getElementById("recipe-container");
-                    container.innerHTML = limitedRecipes.map(recipe => `
-                        <div class="col-md-4">
-                            <div class="card">
-                                <img src="${recipe.image}" class="card-img-top" alt="${recipe.title}">
-                                <div class="card-body">
-                                    <h5 class="card-title">${recipe.title}</h5>
-                                    <p class="card-text">${recipe.description}</p>
-                                    <button class="btn btn-primary" onclick="showRecipeDetails(${recipe.id})">Ver más</button>
-                                </div>
-                            </div>
+document.addEventListener("DOMContentLoaded", () => {
+    const API_URL = window.location.hostname === "localhost"
+        ? "http://localhost:3000/api/recipes" // URL para desarrollo local
+        : "https://sesion-28-ejercicio-1.onrender.com/api/recipes"; // URL del backend remoto
+
+    fetch(API_URL)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Error al obtener las recetas');
+            }
+            return response.json();
+        })
+        .then(data => {
+            // Limitar a las primeras 3 recetas
+            const limitedRecipes = data.slice(0, 3); 
+            const container = document.getElementById("recipe-container");
+            container.innerHTML = limitedRecipes.map(recipe => `
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="${recipe.image}" class="card-img-top" alt="${recipe.title}">
+                        <div class="card-body">
+                            <h5 class="card-title">${recipe.title}</h5>
+                            <p class="card-text">${recipe.description}</p>
+                            <button class="btn btn-primary" onclick="showRecipeDetails(${recipe.id})">Ver más</button>
                         </div>
-                    `).join("");
-                })
-                .catch(error => console.error(error));
+                    </div>
+                </div>
+            `).join("");
+        })
+        .catch(error => {
+            console.error("Error:", error);
+            const container = document.getElementById("recipe-container");
+            container.innerHTML = `<p class="text-danger">No se pudieron cargar las recetas. Intenta más tarde.</p>`;
         });
+});
     
     function showRecipeDetails(recipeId) {
             fetch(`/api/recipes/${recipeId}`)
