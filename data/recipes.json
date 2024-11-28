@@ -43,16 +43,5 @@
       "Cocina hasta que las lentejas estén tiernas."
     ],
     "image": "https://pittsburghfoodbank.org/wp-content/uploads/2021/08/Recipe-Images-20.png"
-  },
-  {
-    "id": 6,
-    "title": "Pasta Primavera",
-    "ingredients": "Pasta, brócoli, zanahorias, pimientos, crema vegana.",
-    "instructions": [
-      "Cocina la pasta y las verduras por separado.",
-      "Mezcla con la crema vegana.",
-      "Sirve caliente."
-    ],
-    "image": "https://images.services.kitchenstories.io/w7kIw5bZaJP6rgq3Zj_HOouUq_U=/3840x0/filters:quality(85)/images.kitchenstories.io/wagtailOriginalImages/R2572-picnic-final-photo-4x3.jpg"
   }
 ]

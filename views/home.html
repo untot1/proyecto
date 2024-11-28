@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <!-- Meta etiquetas requeridas -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -14,86 +13,61 @@
 
     <title>Recetario Online</title>
     <style>
-    body {
-        font-family: 'Poppins', sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #f0e9cd; /* Gris claro */
-        color: #333333; /* Negro suave */
-    }
-    header {
-        background-color: #17542A; 
-        color: #EDEEE9; 
-        text-align: center;
-        padding: 1.5rem 0;
-    }
-    header h1 {
-        font-weight: 600;
-        font-size: 2rem;
-    }
-    header p {
-        font-weight: 400;
-        font-size: 1rem;
-    }
-    nav {
-        background-color: #17542A;; 
-        padding: 0.5rem 0;
-    }
-    nav a {
-        color: #EDEEE9; 
-        margin: 0 15px;
-        text-decoration: none;
-        font-weight: 600;
-    }
-    nav a:hover {
-        text-decoration: underline;
-    }
-    .container {
-        padding: 2rem 0;
-    }
-    .recetarios .card {
-        border: none;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        border-radius: 10px;
-    }
-    .recetarios .card-img-top {
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
-        object-fit: cover;
-        height: 200px;
-    }
-    .recetarios .card-title {
-        color: #17542A; /* Rosa fuerte */
-        font-size: 1.25rem;
-        font-weight: 600;
-    }
-    .recetarios .card-text {
-        font-size: 0.9rem;
-        color: #666666; /* Gris medio */
-    }
-    .recetarios .btn-primary {
-        background-color: #9abc43; /* Rosa claro */
-        border: none;
-        color: #EDEEE9;
-        font-weight: 600;
-        padding: 0.5rem 1rem;
-        border-radius: 5px;
-    }
-    .recetarios .btn-primary:hover {
-        background-color: #17542A; /* Rosa fuerte */
-        color: #EDEEE9;
-    }
-    footer {
-        background-color: #17542A; /* Rosa claro */
-        color: #EDEEE9;
-        text-align: center;
-        padding: 1rem 0;
-    }
-</style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0e9cd;
+            color: #333333;
+        }
+        header {
+            background-color: #17542A; 
+            color: #EDEEE9; 
+            text-align: center;
+            padding: 1.5rem 0;
+        }
+        nav a {
+            color: #EDEEE9; 
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .recetarios .card {
+            border: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        .recetarios .card img {
+            width: 100%; /* Ocupa todo el ancho de la tarjeta */
+            height: 200px; /* Ajusta la altura deseada para las imágenes */
+            object-fit: cover; /* Ajusta la imagen al contenedor manteniendo la proporción */
+            border-radius: 10px; /* Bordes redondeados */
+        }
+        .recetarios .btn-primary {
+            background-color: #9abc43; 
+            border: none;
+            color: #EDEEE9;
+            font-weight: 600;
+            border-radius: 5px;
+        }
+        footer {
+            background-color: #17542A; 
+            color: #EDEEE9;
+            text-align: center;
+            padding: 1rem 0;
+        }
+        /* Estilo para imágenes en el modal */
+        #recipeModal img {
+            width: 100%; /* Ocupa todo el ancho del modal */
+            height: auto; /* Mantiene la proporción */
+            max-height: 100px; /* Limita la altura máxima */
+            object-fit: cover; /* Ajusta la imagen dentro del tamaño definido */
+            border-radius: 10px; /* Opcional: para bordes redondeados */
+        }
+    </style>
+    
 
-    
-    
-    
 </head>
 <body>
     <header style="background-color: #17542A; padding: 20px; color: #EDEEE9;">
@@ -110,52 +84,39 @@
                 <p style="margin: 5px 0;">Descubre, guarda y comparte tus recetas favoritas</p>
                 <nav class="navbar navbar-expand-lg navbar-dark" style="margin-top: 10px;">
                     <div class="d-flex">
-                        <a class="navbar-brand" href="#">Inicio</a>
-                        <a class="navbar-brand" href="recetas.html">Recetas</a>
+                        <a class="navbar-brand" href="#.html">Inicio</a>
+                        <a class="navbar-brand" href="pruebaRecetas.html">Recetas</a>
                         <a class="navbar-brand" href="subs.html">Suscribirse</a>
-                        <a class="navbar-brand" href="contacto.html">Contacto</a>
+                        <a class="navbar-brand" href="pruebaContacto.html">Contacto</a>
                     </div>
                 </nav>
             </div>
         </div>
     </header>
-    
-    
-    
-    
-    
 
     <div class="container my-5">
-        <h2 class="text-center mb-4" style="color: #17542A; font-family: 'Poppins', sans-serif; font-weight: 600;">Recetarios Destacados</h2>
-        <div class="row recetarios">
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSI8w7PvB-tow-j1iw-cATg2SBGIceOaZornQ&s" class="card-img-top" alt="Recetario de Ensaladas">
-                    <div class="card-body">
-                        <h5 class="card-title">Recetario de Ensaladas</h5>
-                        <p class="card-text">Descubre una variedad de ensaladas frescas y saludables.</p>
-                        <a href="#" class="btn btn-primary">Ver más</a>
-                    </div>
+        <h2 class="text-center mb-4" style="color: #17542A;">Recetarios Destacados</h2>
+        <div class="row recetarios" id="recipe-container"></div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="recipeModal" tabindex="-1" role="dialog" aria-labelledby="recipeModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="recipeModalLabel"></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
-            </div>
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZAMq4LD07b-zM3EMvmKNL4P5QgCbBGKy32A&s" class="card-img-top" alt="Recetario de Postres">
-                    <div class="card-body">
-                        <h5 class="card-title">Recetario de Postres</h5>
-                        <p class="card-text">Endulza tu día con estos deliciosos postres caseros.</p>
-                        <a href="#" class="btn btn-primary">Ver más</a>
-                    </div>
+                <div class="modal-body">
+                    <img id="recipeImage" src="" alt="Imagen de receta" class="img-fluid mb-3">
+                    <p id="recipeDescription"></p>
+                    <ul id="recipeIngredients" class="list-group"></ul>
                 </div>
-            </div>
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <img src="https://images.aws.nestle.recipes/original/a186b4db53050fc244d3e68bd0a120b6_sopa_de_fideo_con_br%C3%B3coli.jpg" class="card-img-top" alt="Recetario de Sopas">
-                    <div class="card-body">
-                        <h5 class="card-title">Recetario de Sopas</h5>
-                        <p class="card-text">Caldos y sopas perfectas para cualquier ocasión.</p>
-                        <a href="#" class="btn btn-primary">Ver más</a>
-                    </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary" onclick="redirectToRecipes()">Más recetas</button>
                 </div>
             </div>
         </div>
@@ -165,9 +126,70 @@
         <p>&copy; 2024 Recetario Online. Todos los derechos reservados.</p>
     </footer>
 
-    <!-- Optional JavaScript -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4f86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            fetch('http://localhost:3000/api/recipes')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Error al obtener las recetas');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    // Limitar a las primeras 3 recetas
+                    const limitedRecipes = data.slice(0, 3); 
+                    const container = document.getElementById("recipe-container");
+                    container.innerHTML = limitedRecipes.map(recipe => `
+                        <div class="col-md-4">
+                            <div class="card">
+                                <img src="${recipe.image}" class="card-img-top" alt="${recipe.title}">
+                                <div class="card-body">
+                                    <h5 class="card-title">${recipe.title}</h5>
+                                    <p class="card-text">${recipe.description}</p>
+                                    <button class="btn btn-primary" onclick="showRecipeDetails(${recipe.id})">Ver más</button>
+                                </div>
+                            </div>
+                        </div>
+                    `).join("");
+                })
+                .catch(error => console.error(error));
+        });
+    
+    function showRecipeDetails(recipeId) {
+            fetch(`/api/recipes/${recipeId}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Error al obtener los detalles de la receta');
+                    }
+                    return response.json();
+                })
+                .then(recipe => {
+                    // Configurar el modal con los datos de la receta
+                    document.getElementById("recipeModalLabel").textContent = recipe.title || "Sin título";
+                    document.getElementById("recipeImage").src = recipe.image || "https://via.placeholder.com/150";
+                    document.getElementById("recipeDescription").textContent = recipe.description || "No hay descripción disponible.";
+                    
+                    // Manejar los ingredientes
+                    const ingredientsArray = typeof recipe.ingredients === "string"
+                        ? recipe.ingredients.split("\n")
+                        : recipe.ingredients || [];
+                    document.getElementById("recipeIngredients").innerHTML =
+                        ingredientsArray.length > 0
+                            ? ingredientsArray.map(ing => `<li class="list-group-item">${ing}</li>`).join("")
+                            : "<li class='list-group-item'>No hay ingredientes disponibles.</li>";
+                    $('#recipeModal').modal('show');
+                })
+                .catch(error => {
+                    console.error('Error al obtener los detalles de la receta:', error);
+                    alert('No se pudieron cargar los detalles de la receta.');
+                });
+            }
+    function redirectToRecipes() {
+                window.location.href = "pruebaRecetas.html"; // Cambia la ruta si es necesario
+            }
+    </script>    
 </body>
 </html>
