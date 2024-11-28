@@ -1,0 +1,16 @@
+{
+  "name": "recetario-online",
+  "version": "1.0.0",
+  "description": "Servidor para el Recetario Online",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "recetario-online": "file:"
+  },
+  "engines": {
+    "node": "16.x"
+  }
+}

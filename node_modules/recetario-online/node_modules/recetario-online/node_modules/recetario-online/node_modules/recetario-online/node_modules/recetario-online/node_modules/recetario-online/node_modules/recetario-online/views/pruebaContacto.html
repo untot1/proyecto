@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <title>Contáctanos</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0e9cd;
+            color: #333333;
+        }
+        header {
+            background-color: #17542A; 
+            color: #EDEEE9; 
+            text-align: center;
+            padding: 1.5rem 0;
+        }
+        .container {
+            padding: 2rem 0;
+        }
+        .contact-form {
+            background-color: #EDEEE9;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+        .contact-form button {
+            background-color: #9C9F52;
+            color: #EDEEE9;
+            font-weight: 600;
+            border: none;
+        }
+        .contact-form button:hover {
+            background-color: #17542A;
+        }
+        .message-card {
+            background-color: #EDEEE9;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+        .message-card h5 {
+            color: #17542A;
+        }
+        footer {
+            background-color: #17542A; 
+            color: #EDEEE9;
+            text-align: center;
+            padding: 1rem 0;
+        }
+    </style>
+</head>
+<body>
+    <header style="background-color: #17542A; padding: 20px; color: #EDEEE9;">
+        <div class="container d-flex align-items-center">
+            <!-- Logo alineado a la izquierda -->
+            <div>
+                <a href="#">
+                    <img src="https://i.pinimg.com/736x/f9/93/3b/f9933b920aecbe23369b422145e9e987.jpg" alt="Logo" style="width: 300px; height: 300px; border-radius: 50%; margin-right: 20px;">
+                </a>
+            </div>
+            <!-- Contenido justificado a la derecha del logo -->
+            <div style="text-align: justify; flex: 1;">
+                <h1 style="margin: 0; font-size: 2rem;">Recetario Online</h1>
+                <p style="margin: 5px 0;">Descubre, guarda y comparte tus recetas favoritas</p>
+                <nav class="navbar navbar-expand-lg navbar-dark" style="margin-top: 10px;">
+                    <div class="d-flex">
+                        <a class="navbar-brand" href="home.html">Inicio</a>
+                        <a class="navbar-brand" href="pruebaRecetas.html">Recetas</a>
+                        <a class="navbar-brand" href="subs.html">Suscribirse</a>
+                        <a class="navbar-brand" href="#">Contacto</a>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- About Us Section -->
+        <div class="about-section">
+            <h3>Sobre Nosotros</h3>
+            <p>Recetario Online es una plataforma creada para amantes de la cocina. Nuestra misión es ofrecerte un espacio donde descubrir, compartir y disfrutar recetas increíbles de nuestra comunidad. Creemos en el poder de los ingredientes frescos, las combinaciones creativas y la magia que ocurre en la cocina.</p>
+            <p>Únete a nuestra comunidad y sé parte del mundo culinario que estamos construyendo.</p>
+        </div>
+
+    <div class="container">
+        <div class="contact-form">
+            <h3 class="text-center mb-4">Envíanos un mensaje</h3>
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="name">Nombre:</label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Ingresa tu nombre" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Correo Electrónico:</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Ingresa tu correo" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Mensaje:</label>
+                    <textarea class="form-control" id="message" name="message" rows="5" placeholder="Escribe tu mensaje aquí" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-block">Enviar Mensaje</button>
+            </form>
+        </div>
+
+        <!-- Contenedor para mostrar los mensajes -->
+        <div id="jsonContainer">
+            <h3 class="text-center mb-4">Mensajes Recibidos</h3>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Recetario Online. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        // Cargar los mensajes guardados desde el localStorage 
+        const storedMessages = JSON.parse(localStorage.getItem('messages')) || [];
+
+        // Manejar el envío del formulario
+        document.getElementById('contactForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            // Capturar los datos del formulario
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            // Crear un objeto para el mensaje
+            const newMessage = {
+                name: name,
+                email: email,
+                message: message,
+                timestamp: new Date().toLocaleString()
+            };
+
+            // Agregar el mensaje al arreglo de mensajes
+            storedMessages.push(newMessage);
+
+            // Guardar los mensajes en el localStorage
+            localStorage.setItem('messages', JSON.stringify(storedMessages));
+
+            // Actualizar la visualización de los mensajes
+            displayMessages();
+
+            // Resetear el formulario
+            this.reset();
+        });
+
+        // Función para mostrar los mensajes como tarjetas
+        function displayMessages() {
+            const jsonContainer = document.getElementById('jsonContainer');
+            jsonContainer.innerHTML = '<h3 class="text-center mb-4">Mensajes Recibidos</h3>';
+
+            storedMessages.forEach((msg, index) => {
+                const messageCard = `
+                    <div class="message-card">
+                        <h5>Mensaje #${index + 1}</h5>
+                        <p><strong>Nombre:</strong> ${msg.name}</p>
+                        <p><strong>Correo Electrónico:</strong> ${msg.email}</p>
+                        <p><strong>Mensaje:</strong> ${msg.message}</p>
+                        <p class="text-muted"><strong>Fecha:</strong> ${msg.timestamp}</p>
+                        <button class="btn btn-danger" onclick="deleteMessage(${index})">Eliminar</button>
+                    </div>
+                `;
+                jsonContainer.innerHTML += messageCard;
+            });
+        }
+
+        // Función para eliminar un mensaje
+        function deleteMessage(index) {
+            // Eliminar el mensaje del arreglo
+            storedMessages.splice(index, 1);
+
+            // Actualizar el localStorage con los mensajes restantes
+            localStorage.setItem('messages', JSON.stringify(storedMessages));
+
+            // Volver a mostrar los mensajes actualizados
+            displayMessages();
+        }
+
+        // Mostrar los mensajes cuando se carga la página
+        displayMessages();
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Recetas Subidas</title>
+    <style>
+    body {
+        font-family: 'Poppins', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f0e9cd; /* Gris claro */
+        color: #333333; /* Negro suave */
+    }
+    header {
+        background-color: #17542A; 
+        color: #EDEEE9; 
+        text-align: center;
+        padding: 1.5rem 0;
+    }
+    header h1 {
+        font-weight: 600;
+        font-size: 2rem;
+    }
+    header p {
+        font-weight: 400;
+        font-size: 1rem;
+    }
+    nav {
+        background-color: #17542A; 
+        padding: 0.5rem 0;
+    }
+    nav a {
+        color: #EDEEE9; 
+        margin: 0 15px;
+        text-decoration: none;
+        font-weight: 600;
+    }
+    nav a:hover {
+        text-decoration: underline;
+    }
+    .container {
+        padding: 2rem 0;
+    }
+    .recipe {
+        border: none;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        background-color: #EDEEE9;
+        margin-bottom: 1.5rem;
+        padding: 1.5rem;
+    }
+    .recipe img {
+        width: 100%;
+        border-radius: 10px;
+        margin-bottom: 1rem;
+    }
+    .recipe h3 {
+        color: #17542A; /* Verde oscuro */
+        font-weight: 600;
+    }
+    .recipe p {
+        font-size: 1rem;
+        color: #666666; /* Gris medio */
+        margin-bottom: 0.5rem;
+    }
+    footer {
+        background-color: #17542A; 
+        color: #EDEEE9;
+        text-align: center;
+        padding: 1rem 0;
+    }
+    </style>
+</head>
+<body>
+    <header style="background-color: #17542A; padding: 20px; color: #EDEEE9;">
+        <div class="container d-flex align-items-center">
+            <!-- Logo alineado a la izquierda -->
+            <div>
+                <a href="#">
+                    <img src="https://i.pinimg.com/736x/f9/93/3b/f9933b920aecbe23369b422145e9e987.jpg" alt="Logo" style="width: 300px; height: 300px; border-radius: 50%; margin-right: 20px;">
+                </a>
+            </div>
+            <!-- Contenido justificado a la derecha del logo -->
+            <div style="text-align: justify; flex: 1;">
+                <h1 style="margin: 0; font-size: 2rem;">Recetario Online</h1>
+                <p style="margin: 5px 0;">Descubre, guarda y comparte tus recetas favoritas</p>
+                <nav class="navbar navbar-expand-lg navbar-dark" style="margin-top: 10px;">
+                    <div class="d-flex">
+                        <a class="navbar-brand" href="home.html">Inicio</a>
+                        <a class="navbar-brand" href="#">Recetas</a>
+                        <a class="navbar-brand" href="subs.html">Suscribirse</a>
+                        <a class="navbar-brand" href="pruebaContacto.html">Contacto</a>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="mb-4">
+            <h3>Agregar nueva receta</h3>
+            <form id="addRecipeForm">
+                <div class="form-group">
+                    <label for="recipeTitle">Título</label>
+                    <input type="text" class="form-control" id="recipeTitle" required>
+                </div>
+                <div class="form-group">
+                    <label for="recipeIngredients">Ingredientes</label>
+                    <textarea class="form-control" id="recipeIngredients" rows="2" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="recipeInstructions">Instrucciones (una por línea)</label>
+                    <textarea class="form-control" id="recipeInstructions" rows="3" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="recipeImage">URL de la Imagen</label>
+                    <input type="url" class="form-control" id="recipeImage" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Agregar Receta</button>
+            </form>            
+        </div>
+
+        <div id="recipeContainer"></div>
+    </div>
+
+
+<!-- Modal para Ver Instrucciones -->
+<div class="modal fade" id="viewInstructionsModal" tabindex="-1" role="dialog" aria-labelledby="viewInstructionsModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="viewInstructionsModalLabel">Instrucciones</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <ol id="instructionsList"></ol>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <!-- Modal para edición -->
+    <div class="modal fade" id="editRecipeModal" tabindex="-1" role="dialog" aria-labelledby="editRecipeModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editRecipeModalLabel">Editar Receta</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="editRecipeForm">
+                        <input type="hidden" id="editRecipeId">
+                        <div class="form-group">
+                            <label for="editRecipeTitle">Título</label>
+                            <input type="text" class="form-control" id="editRecipeTitle" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="editRecipeIngredients">Ingredientes</label>
+                            <textarea class="form-control" id="editRecipeIngredients" rows="2" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="editRecipeInstructions">Instrucciones</label>
+                            <textarea class="form-control" id="editRecipeInstructions" rows="3" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="editRecipeImage">URL de la Imagen</label>
+                            <input type="url" class="form-control" id="editRecipeImage" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <footer>
+        <p>&copy; 2024 Recetario Dinámico. Todos los derechos reservados.</p>
+    </footer>
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+    let recipes = [];
+
+    // Obtener recetas desde el servidor
+    async function fetchRecipes() {
+        try {
+            const response = await fetch('/api/recipes');
+            if (!response.ok) throw new Error('Error al obtener las recetas');
+            recipes = await response.json();
+            renderRecipes();
+        } catch (error) {
+            console.error('Error al cargar recetas:', error);
+            alert('No se pudieron cargar las recetas.');
+        }
+    }
+
+    // Renderizar recetas en la página
+    function renderRecipes() {
+    const recipeContainer = document.getElementById('recipeContainer');
+    recipeContainer.innerHTML = '';
+
+    recipes.forEach(recipe => {
+        const recipeHTML = `
+            <div class="recipe">
+                <img src="${recipe.image}" alt="Imagen de ${recipe.title}">
+                <h3>${recipe.title}</h3>
+                <p><strong>Ingredientes:</strong> ${recipe.ingredients}</p>
+                <button class="btn btn-success" onclick="showInstructions(${recipe.id})">Ver instrucciones</button>
+                <button class="btn btn-warning" onclick="openEditModal(${recipe.id})">Editar</button>
+                <button class="btn btn-danger" onclick="deleteRecipe(${recipe.id})">Eliminar</button>
+            </div>
+        `;
+        recipeContainer.innerHTML += recipeHTML;
+    });
+}
+
+document.getElementById('addRecipeForm').addEventListener('submit', async function (event) {
+        event.preventDefault(); // Prevenir el comportamiento por defecto
+
+        const newRecipe = {
+            title: document.getElementById('recipeTitle').value,
+            ingredients: document.getElementById('recipeIngredients').value,
+            instructions: document.getElementById('recipeInstructions').value.split('\n'),
+            image: document.getElementById('recipeImage').value,
+        };
+
+        try {
+            const response = await fetch('/api/recipes', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(newRecipe),
+            });
+
+            if (!response.ok) throw new Error('Error al agregar la receta');
+
+            alert('¡Receta agregada con éxito!');
+            fetchRecipes(); // Recargar las recetas
+            event.target.reset(); // Limpiar el formulario
+        } catch (error) {
+            console.error('Error al agregar receta:', error);
+            alert('No se pudo agregar la receta.');
+        }
+    });
+    
+    // Mostrar instrucciones
+    function showInstructions(id) {
+    // Buscar la receta correspondiente
+    const recipe = recipes.find(r => r.id === id);
+    if (!recipe) {
+        alert('Receta no encontrada.');
+        return;
+    }
+
+    // Cambiar el título del modal con el nombre de la receta
+    document.getElementById('viewInstructionsModalLabel').innerText = `${recipe.title} - Instrucciones`;
+
+    // Insertar las instrucciones en forma de lista ordenada
+    const instructionsList = document.getElementById('instructionsList');
+    instructionsList.innerHTML = recipe.instructions.map(step => `<li>${step}</li>`).join('');
+
+    // Mostrar el modal
+    $('#viewInstructionsModal').modal('show');
+}
+
+    // Abrir modal de edición
+    function openEditModal(id) {
+        const recipe = recipes.find(r => r.id === id);
+        if (!recipe) {
+            alert('Receta no encontrada.');
+            return;
+        }
+
+        document.getElementById('editRecipeId').value = recipe.id;
+        document.getElementById('editRecipeTitle').value = recipe.title;
+        document.getElementById('editRecipeIngredients').value = recipe.ingredients;
+        document.getElementById('editRecipeInstructions').value = recipe.instructions.join('\n');
+        document.getElementById('editRecipeImage').value = recipe.image;
+
+        $('#editRecipeModal').modal('show');
+    }
+
+    // Guardar cambios en la edición
+    document.getElementById('editRecipeForm').addEventListener('submit', async function (event) {
+        event.preventDefault();
+
+        const id = parseInt(document.getElementById('editRecipeId').value);
+        const updatedRecipe = {
+            title: document.getElementById('editRecipeTitle').value,
+            ingredients: document.getElementById('editRecipeIngredients').value,
+            instructions: document.getElementById('editRecipeInstructions').value.split('\n'),
+            image: document.getElementById('editRecipeImage').value,
+        };
+
+        try {
+            const response = await fetch(`/api/recipes/${id}`, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(updatedRecipe),
+            });
+
+            if (!response.ok) throw new Error('Error al actualizar la receta');
+
+            $('#editRecipeModal').modal('hide');
+            fetchRecipes(); // Recargar recetas
+        } catch (error) {
+            console.error('Error al actualizar receta:', error);
+            alert('No se pudo actualizar la receta.');
+        }
+    });
+
+    // Eliminar receta
+    async function deleteRecipe(id) {
+        if (!confirm('¿Estás seguro de que deseas eliminar esta receta?')) return;
+
+        try {
+            const response = await fetch(`/api/recipes/${id}`, { method: 'DELETE' });
+            if (!response.ok) throw new Error('Error al eliminar la receta');
+
+            alert('Receta eliminada exitosamente.');
+            fetchRecipes(); // Recargar recetas
+        } catch (error) {
+            console.error('Error al eliminar receta:', error);
+            alert('No se pudo eliminar la receta.');
+        }
+    }
+
+    // Hacer las funciones globales
+    window.showInstructions = showInstructions;
+    window.openEditModal = openEditModal;
+    window.deleteRecipe = deleteRecipe;
+
+    // Cargar recetas al iniciar
+    fetchRecipes();
+});
+
+function showInstructions(id) {
+    const recipe = recipes.find(r => r.id === id);
+    if (!recipe) {
+        alert('Receta no encontrada.');
+        return;
+    }
+
+    // Configuramos el título del modal
+    document.getElementById('viewInstructionsModalLabel').innerText = `Instrucciones de "${recipe.title}"`;
+
+    // Llenamos la lista de instrucciones
+    const instructionsList = document.getElementById('instructionsList');
+    instructionsList.innerHTML = recipe.instructions
+        .map(step => `<li>${step}</li>`)
+        .join('');
+
+    // Mostramos el modal
+    $('#viewInstructionsModal').modal('show');
+}
+
+    </script>
+</body>
+</html>

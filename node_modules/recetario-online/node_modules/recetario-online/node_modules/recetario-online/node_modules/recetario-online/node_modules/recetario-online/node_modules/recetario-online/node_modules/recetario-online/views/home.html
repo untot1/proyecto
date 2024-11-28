@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Meta etiquetas requeridas -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Recetario Online</title>
+    <style>
+    body {
+        font-family: 'Poppins', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f0e9cd; /* Gris claro */
+        color: #333333; /* Negro suave */
+    }
+    header {
+        background-color: #17542A; 
+        color: #EDEEE9; 
+        text-align: center;
+        padding: 1.5rem 0;
+    }
+    header h1 {
+        font-weight: 600;
+        font-size: 2rem;
+    }
+    header p {
+        font-weight: 400;
+        font-size: 1rem;
+    }
+    nav {
+        background-color: #17542A;; 
+        padding: 0.5rem 0;
+    }
+    nav a {
+        color: #EDEEE9; 
+        margin: 0 15px;
+        text-decoration: none;
+        font-weight: 600;
+    }
+    nav a:hover {
+        text-decoration: underline;
+    }
+    .container {
+        padding: 2rem 0;
+    }
+    .recetarios .card {
+        border: none;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+    }
+    .recetarios .card-img-top {
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        object-fit: cover;
+        height: 200px;
+    }
+    .recetarios .card-title {
+        color: #17542A; /* Rosa fuerte */
+        font-size: 1.25rem;
+        font-weight: 600;
+    }
+    .recetarios .card-text {
+        font-size: 0.9rem;
+        color: #666666; /* Gris medio */
+    }
+    .recetarios .btn-primary {
+        background-color: #9abc43; /* Rosa claro */
+        border: none;
+        color: #EDEEE9;
+        font-weight: 600;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+    }
+    .recetarios .btn-primary:hover {
+        background-color: #17542A; /* Rosa fuerte */
+        color: #EDEEE9;
+    }
+    footer {
+        background-color: #17542A; /* Rosa claro */
+        color: #EDEEE9;
+        text-align: center;
+        padding: 1rem 0;
+    }
+</style>
+
+    
+    
+    
+</head>
+<body>
+    <header style="background-color: #17542A; padding: 20px; color: #EDEEE9;">
+        <div class="container d-flex align-items-center">
+            <!-- Logo alineado a la izquierda -->
+            <div>
+                <a href="#">
+                    <img src="https://i.pinimg.com/736x/f9/93/3b/f9933b920aecbe23369b422145e9e987.jpg" alt="Logo" style="width: 300px; height: 300px; border-radius: 50%; margin-right: 20px;">
+                </a>
+            </div>
+            <!-- Contenido justificado a la derecha del logo -->
+            <div style="text-align: justify; flex: 1;">
+                <h1 style="margin: 0; font-size: 2rem;">Recetario Online</h1>
+                <p style="margin: 5px 0;">Descubre, guarda y comparte tus recetas favoritas</p>
+                <nav class="navbar navbar-expand-lg navbar-dark" style="margin-top: 10px;">
+                    <div class="d-flex">
+                        <a class="navbar-brand" href="#">Inicio</a>
+                        <a class="navbar-brand" href="recetas.html">Recetas</a>
+                        <a class="navbar-brand" href="subs.html">Suscribirse</a>
+                        <a class="navbar-brand" href="contacto.html">Contacto</a>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+    
+    
+    
+    
+
+    <div class="container my-5">
+        <h2 class="text-center mb-4" style="color: #17542A; font-family: 'Poppins', sans-serif; font-weight: 600;">Recetarios Destacados</h2>
+        <div class="row recetarios">
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSI8w7PvB-tow-j1iw-cATg2SBGIceOaZornQ&s" class="card-img-top" alt="Recetario de Ensaladas">
+                    <div class="card-body">
+                        <h5 class="card-title">Recetario de Ensaladas</h5>
+                        <p class="card-text">Descubre una variedad de ensaladas frescas y saludables.</p>
+                        <a href="#" class="btn btn-primary">Ver más</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZAMq4LD07b-zM3EMvmKNL4P5QgCbBGKy32A&s" class="card-img-top" alt="Recetario de Postres">
+                    <div class="card-body">
+                        <h5 class="card-title">Recetario de Postres</h5>
+                        <p class="card-text">Endulza tu día con estos deliciosos postres caseros.</p>
+                        <a href="#" class="btn btn-primary">Ver más</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="https://images.aws.nestle.recipes/original/a186b4db53050fc244d3e68bd0a120b6_sopa_de_fideo_con_br%C3%B3coli.jpg" class="card-img-top" alt="Recetario de Sopas">
+                    <div class="card-body">
+                        <h5 class="card-title">Recetario de Sopas</h5>
+                        <p class="card-text">Caldos y sopas perfectas para cualquier ocasión.</p>
+                        <a href="#" class="btn btn-primary">Ver más</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Recetario Online. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Optional JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4f86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>

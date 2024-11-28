@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "title": "Ensalada Mediterránea",
+    "description": "Una ensalada fresca con sabores mediterráneos.",
+    "ingredients": "Espinacas frescas\nTomates cherry\nAceitunas negras",
+    "instructions": [
+      "Lava los ingredientes.",
+      "Corta los tomates y las espinacas.",
+      "Mezcla todo en un bowl."
+    ],
+    "image": "https://imag.bonviveur.com/ensalada-mediterranea.jpg"
+  },
+  {
+    "id": 3,
+    "title": "Curry de Garbanzos",
+    "description": "Un plato cremoso con especias exóticas.",
+    "ingredients": "Garbanzos cocidos, leche de coco, pasta de curry, espinacas.",
+    "instructions": [
+      "Cocina la pasta de curry en una sartén.",
+      "Agrega los garbanzos y la leche de coco.",
+      "Cocina hasta que espese y agrega espinacas."
+    ],
+    "image": "https://www.gourmet.cl/wp-content/uploads/2022/08/curry-de-garbanzos-ajustada-web-570x458.jpg"
+  },
+  {
+    "id": 4,
+    "title": "Ensalada de Cous Cous",
+    "description": "Una ensalada ligera y refrescante.",
+    "ingredients": "Cous cous, tomate, pepino, menta, jugo de limón.",
+    "instructions": [
+      "Hidrata el cous cous con agua caliente.",
+      "Mezcla con los vegetales picados y la menta.",
+      "Adereza con jugo de limón."
+    ],
+    "image": "https://www.recetasjudias.com/wp-content/uploads/2016/06/Ensalada-de-Cous-cous-con-vegetales-frescos-e1466182236820.jpg"
+  },
+  {
+    "id": 5,
+    "title": "Sopa de Lentejas",
+    "description": "Una sopa reconfortante y nutritiva.",
+    "ingredients": "Lentejas, zanahorias, apio, cebolla, caldo de verduras.",
+    "instructions": [
+      "Sofríe las verduras en una olla.",
+      "Agrega las lentejas y el caldo de verduras.",
+      "Cocina hasta que las lentejas estén tiernas."
+    ],
+    "image": "https://pittsburghfoodbank.org/wp-content/uploads/2021/08/Recipe-Images-20.png"
+  },
+  {
+    "id": 6,
+    "title": "Pasta Primavera",
+    "description": "Un plato de pasta colorido y saludable.",
+    "ingredients": "Pasta, brócoli, zanahorias, pimientos, crema vegana.",
+    "instructions": [
+      "Cocina la pasta y las verduras por separado.",
+      "Mezcla con la crema vegana.",
+      "Sirve caliente."
+    ],
+    "image": "https://images.services.kitchenstories.io/w7kIw5bZaJP6rgq3Zj_HOouUq_U=/3840x0/filters:quality(85)/images.kitchenstories.io/wagtailOriginalImages/R2572-picnic-final-photo-4x3.jpg"
+  }
+]
